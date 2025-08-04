@@ -14,7 +14,7 @@ DB_HOST = getenv("DB_HOST")
 DB_PORT = getenv("DB_PORT")
 DB_NAME = getenv("DB_NAME")
 
-DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+DATABASE_URL = getenv("DB_URL", f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}")
 
 database = Database(DATABASE_URL)
 metadata = MetaData()
